@@ -1,0 +1,4 @@
+github "ReactiveX/RxSwift" ~>2.6
+github "Alamofire/Alamofire" ~>3.4
+github "mac-cain13/R.swift"
+github "RxSwiftCommunity/RxDataSources"

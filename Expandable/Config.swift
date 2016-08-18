@@ -1,0 +1,29 @@
+//
+//  Config.swift
+//  Expandable
+//
+//  Created by 宋宋 on 8/18/16.
+//  Copyright © 2016 T. All rights reserved.
+//
+
+import UIKit
+
+struct Config<View> {
+    let view: View
+    init(_ view: View) {
+        self.view = view
+    }
+}
+
+extension NSObjectProtocol {
+    var config: Config<Self> {
+        return Config(self)
+    }
+}
+
+extension Config where View: NSDateFormatter {
+    var longStyle: Config {
+        view.dateStyle = NSDateFormatterStyle.LongStyle
+        return self
+    }
+}
