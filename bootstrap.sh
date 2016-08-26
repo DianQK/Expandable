@@ -15,12 +15,3 @@ if which carthage >/dev/null; then
   echo "installing carthage dependence..."
   carthage bootstrap --verbose --platform ios --color auto --no-use-binaries
 fi
-
-if which wget >/dev/null; then
-  echo "installing wget..."
-  brew install wget
-fi
-
-wget https://github.com/mac-cain13/R.swift/releases/download/v2.4.0/rswift-2.4.0.zip
-unzip -n rswift-2.4.0.zip -d ./
-rm rswift*.zip
