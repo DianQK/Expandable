@@ -11,9 +11,9 @@ import RxSwift
 import RxCocoa
 
 class TextFieldCell: UITableViewCell {
-    
-    @IBOutlet private weak var textField: UITextField!
-    
+
+    @IBOutlet fileprivate weak var textField: UITextField!
+
     var placeholder: String? {
         get {
             return textField?.placeholder
@@ -22,20 +22,11 @@ class TextFieldCell: UITableViewCell {
             textField?.placeholder = newValue
         }
     }
-    
-    var rx_text: ControlProperty<String> {
-        return textField.rx_text
+
+}
+
+extension Reactive where Base: TextFieldCell {
+    var text: ControlProperty<String> {
+        return base.textField.rx.textInput.text
     }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

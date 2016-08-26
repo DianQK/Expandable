@@ -21,9 +21,9 @@ extension NSObjectProtocol {
     }
 }
 
-extension Config where View: NSDateFormatter {
+extension Config where View: DateFormatter {
     var longStyle: Config {
-        view.dateStyle = NSDateFormatterStyle.LongStyle
+        view.dateStyle = DateFormatter.Style.long
         return self
     }
 }

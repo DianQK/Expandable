@@ -12,10 +12,14 @@ import RxCocoa
 
 class DatePickerCell: UITableViewCell {
 
-    @IBOutlet private weak var datePicker: UIDatePicker!
-    
-    var rx_date: ControlProperty<NSDate> {
-        return datePicker.rx_date
+    @IBOutlet fileprivate weak var datePicker: UIDatePicker!
+
+}
+
+extension Reactive where Base: DatePickerCell {
+
+    var date: ControlProperty<Date> {
+        return base.datePicker.rx.date
     }
 
 }

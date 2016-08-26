@@ -12,12 +12,12 @@ import RxDataSources
 
 enum ProfileItemType {
     case fullname(first: Variable<String>, last: Variable<String>)
-    case dateOfBirth(Variable<NSDate>)
+    case dateOfBirth(Variable<Date>)
     case maritalStatus(isMarried: Variable<Bool>)
     case favoriteSport(Variable<String>)
     case favoriteColot(Variable<String>)
     case level(Variable<Int>)
-    
+
     var title: String {
         switch self {
         case .fullname:
@@ -40,7 +40,7 @@ enum ProfileSectionType: String, IdentifiableType {
     case personal = "Personal"
     case preferences = "Preferences"
     case workExperience = "Work Experience"
-    
+
     var identity: String {
         return rawValue
     }
@@ -49,11 +49,11 @@ enum ProfileSectionType: String, IdentifiableType {
 enum ProfileItem {
     case info(title: Variable<String>, type: ProfileItemType)
     case textField(text: Variable<String>, placeholder: String)
-    case datePick(Variable<NSDate>)
+    case datePick(Variable<Date>)
     case status(title: String, isOn: Variable<Bool>)
     case title(String, favorite: Variable<String>)
     case level(Variable<Int>)
-    
+
     var isInfo: Bool {
         switch self {
         case .info:
@@ -81,7 +81,7 @@ extension ProfileItem: Hashable, Equatable, IdentifiableType {
             return "5\(level.value)".hashValue
         }
     }
-    
+
     var identity: Int {
         return hashValue
     }
@@ -103,17 +103,17 @@ extension ProfileItem {
                     ProfileItem.title("Football", favorite: favorite),
                     ProfileItem.title("Basketball", favorite: favorite),
                     ProfileItem.title("Baseball", favorite: favorite),
-                    ProfileItem.title("Volleyball", favorite: favorite)
+                    ProfileItem.title("Volleyball", favorite: favorite),
                 ]
             case let .favoriteColot(favorite):
                 return [
                     ProfileItem.title("Red", favorite: favorite),
                     ProfileItem.title("Green", favorite: favorite),
-                    ProfileItem.title("Blue", favorite: favorite)
+                    ProfileItem.title("Blue", favorite: favorite),
                 ]
             case let .level(level):
                 return [
-                    ProfileItem.level(level)
+                    ProfileItem.level(level),
                 ]
             }
         default:

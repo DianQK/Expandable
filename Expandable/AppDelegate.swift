@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Expandable
+//  RxSwift3Try
 //
-//  Created by DianQK on 8/17/16.
+//  Created by 宋宋 on 8/22/16.
 //  Copyright © 2016 T. All rights reserved.
 //
 
@@ -13,11 +13,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
-    }
-
 }
-

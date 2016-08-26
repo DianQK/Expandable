@@ -13,17 +13,13 @@ import RxCocoa
 class SliderCell: UITableViewCell {
 
     @IBOutlet weak var slider: UISlider!
-    
-    var rx_value: ControlProperty<Int> {
-        let observer = UIBindingObserver<UISlider, Int>(UIElement: slider) { (slider, value) in
+
+}
+extension Reactive where Base: SliderCell {
+    var value: ControlProperty<Int> {
+        let observer = UIBindingObserver<UISlider, Int>(UIElement: base.slider) { (slider, value) in
             slider.value = Float(value)
         }.asObserver()
-        return ControlProperty(values: slider.rx_value.map(Int.init), valueSink: observer)
+        return ControlProperty(values: base.slider.rx.value.map(Int.init), valueSink: observer)
     }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
 }

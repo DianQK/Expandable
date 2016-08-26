@@ -1,4 +1,4 @@
-github "Alamofire/Alamofire" "3.4.1"
-github "mac-cain13/R.swift" "v2.4.0"
-github "ReactiveX/RxSwift" "2.6.0"
-github "RxSwiftCommunity/RxDataSources" "0.9"
+github "Alamofire/Alamofire" "3cc5b4e8453bec9fd6b973d60e6b0605a38e4cf4"
+github "mac-cain13/R.swift.Library" "v3.0.0.beta.1"
+github "ReactiveX/RxSwift" "3.0.0.alpha.1"
+github "RxSwiftCommunity/RxDataSources" "1.0.0.beta.1"

@@ -13,8 +13,8 @@ import RxCocoa
 class SwitchCell: UITableViewCell {
 
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var switchView: UISwitch!
-    
+    @IBOutlet fileprivate weak var switchView: UISwitch!
+
     var title: String? {
         get {
             return titleLabel?.text
@@ -23,9 +23,11 @@ class SwitchCell: UITableViewCell {
             titleLabel?.text = newValue
         }
     }
-    
-    var rx_isOn: ControlProperty<Bool> {
-        return switchView.rx_value
-    }
 
+}
+
+extension Reactive where Base: SwitchCell {
+    var isOn: ControlProperty<Bool> {
+        return base.switchView.rx.value
+    }
 }
